@@ -1,0 +1,15 @@
+#!/bin/bash
+# Author: Bora Hamarat
+# Date: 01.08.2024
+# Description: ping remote host and notify
+hosts="/home/bora/scripts/hosts"
+for ip in $(cat $hosts)
+do
+	ping -c1 $ip &> /dev/null
+	if [ $? -eq 0 ]
+	then
+		echo $ip is OK
+	else
+		echo $ip is NOT OK
+	fi
+done

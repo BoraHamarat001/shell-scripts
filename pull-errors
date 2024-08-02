@@ -1,0 +1,6 @@
+#!/bin/bash
+# Author: Bora Hamarat
+# Date: 01.08.2024
+# Description: Pull only error messages from messages file which is copied from /var/log/syslog and output it to output-errors file
+
+grep -i error /home/bora/scripts/messages > /home/bora/scripts/output-errors
