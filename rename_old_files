@@ -1,0 +1,5 @@
+#!/bin/bash
+# Author: Bora Hamarat
+# Date: 02.08.2024
+# Description: Find all files older than 90 days and rename
+find /home/bora/scripts_dev -mtime +90 -exec mv {} {}.old \;

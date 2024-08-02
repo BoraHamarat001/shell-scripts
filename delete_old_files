@@ -1,0 +1,17 @@
+#!/bin/bash
+# Author: Bora Hamarat
+# Date: 02.08.2024
+# Description: Find all files older than 90 days, list, and remove 
+output_file="/home/bora/scripts_dev/find-output"
+find /home/bora/scripts_dev -mtime +90 -type f >> $output_file
+find /home/bora/scripts_dev -mtime +90 -exec rm {} \;
+if [ -s "$output_file" ]
+then
+	for file in $(cat $output_file)
+	do
+		echo $file is DELETED
+	done
+else
+	echo NO FILE IS DELETED
+fi
+rm $output_file
