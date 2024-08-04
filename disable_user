@@ -1,0 +1,5 @@
+#!/bin/bash
+# Author: Bora Hamarat
+# Date: 04.08.2024
+# Description: disable inactive user accounts
+lastlog | tail -n+2 | grep 'test' | awk '{print $1}' | xargs -I{} usermod -L {}

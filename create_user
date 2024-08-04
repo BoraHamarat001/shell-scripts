@@ -1,0 +1,16 @@
+#!/bin/bash
+# Author: Bora Hamarat
+# Date: 04.08.2024
+# Description: create user
+echo Enter username
+read u
+grep -q $u /etc/passwd
+if [ $? -eq 0 ]
+then
+	echo ERROR -- User $u already exist
+	exit 0
+fi
+echo Enter user description
+read d
+sudo useradd $u -c "$d" 
+echo $u account has been created

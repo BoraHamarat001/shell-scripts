@@ -1,0 +1,12 @@
+#!/bin/bash
+# Author: Bora Hamarat
+# Date: 04.08.2024
+# Description: send email to admin
+IT="hamaratbora07@gmail.com"
+if [ -s /tmp/filtered-logs ]
+then
+	cat /tmp/filtered-logs | sort | uniq | mail -s "syslog message" $IT
+	rm /tmp/filtered-logs
+else
+fi
+

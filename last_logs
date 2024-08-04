@@ -1,0 +1,10 @@
+#!/bin/bash
+# Author: Bora Hamarat
+# Date: 04.08.2024
+# Description: list last user account logs other than root,bora,test
+MAIN_USER=$(getent passwd 1000 | awk -F: '{print $1}')
+LAST_LOG=`lastlog | tail -n+2 | grep -v -e 'test' -e 'root' -e $MAIN_USER | awk '{print $1}'`
+for i in $LAST_LOG
+do 
+	echo $i
+done
