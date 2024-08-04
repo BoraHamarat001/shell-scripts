@@ -1,0 +1,8 @@
+#!/bin/bash 
+# Author: Bora Hamarat
+# Date: 04.08.2024
+# Description: list users logged in by date
+today_month=$(date | awk '{print $2}')
+today_day=$(date | awk '{print $3}')
+last | grep "$today_month  $today_day" | awk '{print $1}'
+

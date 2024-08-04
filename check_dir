@@ -1,0 +1,15 @@
+#!/bin/bash
+# Author: Bora Hamarat
+# Date: 04.08.2024
+# Description: find home directories without user
+cd /home
+for DIR in *
+do
+	CHECK=$(grep -c "/home/$DIR" /etc/passwd)
+	if [ $CHECK -ge 1 ]
+	then
+		echo $DIR is assigned to a user
+	else
+		echo $DIR is not assigned to a user
+	fi
+done

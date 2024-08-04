@@ -1,0 +1,10 @@
+#!/bin/bash
+# Author: Bora Hamarat
+# Date: 04.08.2024
+# Description: find keyword and line number on files
+echo Enter file name or full path?
+read file
+echo Enter keyword
+read keyword
+grep -n "$fkeyword" $file
+

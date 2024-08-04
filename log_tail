@@ -1,0 +1,13 @@
+#!/bin/bash
+# Author: Bora Hamarat
+# Date: 04.08.2024
+# Description: chase logs with define keywords and store them as added to syslog
+tail -fn0 /var/log/syslog | while read line
+do
+	echo $line | egrep -i "error|fail|lost|invalid|offline"
+        if [ $? -eq 0 ]
+	then
+		echo $line >> /tmp/filtered-logs
+	fi
+done	
+
