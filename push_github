@@ -1,0 +1,8 @@
+#!/bin/bash
+# Author: Bora Hamarat
+# Date: 04.08.2024
+# Description: push to github repo
+DATE=$(date | awk '{print $2,$3,$7,$4}')
+git add *
+git commit -m "update, $DATE"
+git push origin main
